@@ -1,0 +1,93 @@
+{
+    "products": [
+      {
+        "id": 1,
+        "category":"phone",
+        "company": "Samsung",
+        "model": "Galaxy M13",
+        "image": "https://m.media-amazon.com/images/I/71UDT0TuNDL._AC_UY327_FMwebp_QL65_.jpg",
+        "price": 10,
+        "quantity": 1,
+        "about":"Samsung Galaxy M12 (Blue,4GB RAM, 64GB Storage) 6000 mAh with 8nm Processor | True 48 MP Quad Camera | 90Hz Refresh Rate",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+      },
+      {
+        "id": 2,
+        "company": "Samsung",
+        "category":"phone",
+        "model": "Glaxy M21 2021",
+        "image": "https://m.media-amazon.com/images/I/811lrGbXwIL._AC_UY327_FMwebp_QL65_.jpg",
+        "price": 20,
+        "quantity": 1,
+        "about":"Samsung Galaxy M12 (Blue,4GB RAM, 64GB Storage) 6000 mAh with 8nm Processor | True 48 MP Quad Camera | 90Hz Refresh Rate",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+      },
+      {
+        "id": 3,
+        "company": "RealMe",
+        "category":"phone",
+        "model": "Nazro 50A",
+        "image": "https://m.media-amazon.com/images/I/81Ke5qtC6oL._AC_UY327_FMwebp_QL65_.jpg",
+        "price": 10,
+        "quantity": 1,
+        "about":"Samsung Galaxy M12 (Blue,4GB RAM, 64GB Storage) 6000 mAh with 8nm Processor | True 48 MP Quad Camera | 90Hz Refresh Rate",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+      },
+      {
+        "id": 4,
+        "company": "RealMe",
+        "category":"phone",
+        "model": "C11 2021",
+        "image": "https://m.media-amazon.com/images/I/31ldvCw3uwL._AC_UY327_FMwebp_QL65_.jpg",
+        "price": 20,
+        "quantity": 1,
+        "about":"Samsung Galaxy M12 (Blue,4GB RAM, 64GB Storage) 6000 mAh with 8nm Processor | True 48 MP Quad Camera | 90Hz Refresh Rate",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+      },
+      {
+        "id": 5,
+        "company": "Apple",
+        "category":"phone",
+        "model": "Apple iPhone 13 Pro Max(128GB)",
+        "image": "https://m.media-amazon.com/images/I/61i8Vjb17SL._AC_UY327_FMwebp_QL65_.jpg",
+        "price": 10,
+        "quantity": 1,
+        "about":"Samsung Galaxy M12 (Blue,4GB RAM, 64GB Storage) 6000 mAh with 8nm Processor | True 48 MP Quad Camera | 90Hz Refresh Rate",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+      },
+      {
+        "id": 6,
+        "company": "Apple",
+        "category":"phone",
+        "model": "Apple iPhone 11(128GB)",
+        "image": "https://m.media-amazon.com/images/I/71tpxtLD0aL._AC_UY327_FMwebp_QL65_.jpg",
+        "price": 20,
+        "quantity": 1,
+        "about":"Samsung Galaxy M12 (Blue,4GB RAM, 64GB Storage) 6000 mAh with 8nm Processor | True 48 MP Quad Camera | 90Hz Refresh Rate",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+      },
+      {
+        "id": 7,
+        "company": "Lenovo",
+        "category":"laptop",
+        "model": "Lenovo IdeaPad Slim 3",
+        "image": "https://m.media-amazon.com/images/I/71iI2wTW56L._AC_UY327_FMwebp_QL65_.jpg",
+        "price": 10,
+        "quantity": 1,
+        "about":"Samsung Galaxy M12 (Blue,4GB RAM, 64GB Storage) 6000 mAh with 8nm Processor | True 48 MP Quad Camera | 90Hz Refresh Rate",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+      },
+      {
+        "id": 8,
+        "company": "Lenovo",
+        "category":"laptop",
+        "model": "Lenovo IdeaPad Slim 1",
+        "image": "https://m.media-amazon.com/images/I/61km1VkaCsL._AC_UY327_FMwebp_QL65_.jpg",
+        "price": 20,
+        "quantity": 1,
+        "about":"Samsung Galaxy M12 (Blue,4GB RAM, 64GB Storage) 6000 mAh with 8nm Processor | True 48 MP Quad Camera | 90Hz Refresh Rate",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+      }
+    ]
+  }
+  
