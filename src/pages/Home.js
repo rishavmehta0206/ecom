@@ -38,16 +38,14 @@ const ModalContainer = styled.div`
 const Home = () => {
   const [modalChange, setModalChange] = useState(false);
   const { products } = useFetchHook("http://localhost:3001/products");
-  const { addedProducts, count ,availableItems} = useContext(AppContext);
+  const { addedProducts, count, availableItems } = useContext(AppContext);
   const [productId2, setProductId2] = useState(0);
   const [modalProperties, setModalProperties] = useState({
     message: "",
     color: "",
     background: "",
   });
-  console.log("home",availableItems)
   useEffect(() => {
-    console.log("called");
     const timer = setTimeout(() => {
       setModalChange(false);
     }, 5000);

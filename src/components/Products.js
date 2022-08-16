@@ -71,6 +71,7 @@ const Products = ({
 }) => {
   const { addedProducts, dispatch } = useContext(AppContext);
   const [productId, setProductId] = useState(0);
+  const [wishlist, setWishlist] = useState(false);
 
   useEffect(() => {
     if (productId > 0) {
@@ -101,6 +102,17 @@ const Products = ({
     }
     setModalChange(true);
   };
+  const addToWishList = useCallback(() => {
+    setWishlist(!wishlist);
+    if (!wishlist) {
+      modalFeatureChanges("Item added to wishlist.", "white", "green");
+      setProductId2((prev) => prev + 1);
+    } else {
+      modalFeatureChanges("Item removed from wishlist.", "white", "green");
+      setProductId2((prev) => prev - 1);
+    }
+    setModalChange(true);
+  }, [wishlist]);
   return (
     <Container>
       <Wrapper>
@@ -123,6 +135,12 @@ const Products = ({
               </Icon>
               <Icon>
                 <i className="fa fa-solid fa-eye"></i>
+              </Icon>
+              <Icon onClick={addToWishList}>
+                <i
+                  style={{ color: wishlist ? "red" : "black" }}
+                  className="fa fa-solid fa-heart"
+                ></i>
               </Icon>
             </CardFooterButtons>
           </CardFooter>

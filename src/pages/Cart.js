@@ -92,7 +92,15 @@ const ProductQuantityControl = styled.div`
   height: 30px;
   margin-left: 30px;
 `;
-
+const Empty = styled.div`
+  width: 100%;
+  font-size: 30px;
+  letter-spacing: 2px;
+  height: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 const Cart = () => {
   const { addedProducts, dispatch, totalCost } = useContext(AppContext);
   const handleQuantity = (direction = "", id, quantity = 0) => {
@@ -118,7 +126,9 @@ const Cart = () => {
   };
 
   if (addedProducts.length === 0) {
-    return <div>Cart is empty.</div>;
+    return <Container>
+      <Empty>Cart is empty.</Empty>
+    </Container>;
   }
 
   return (
