@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
+  position: sticky;
   height: 100%;
   width: 50%;
   margin: auto;

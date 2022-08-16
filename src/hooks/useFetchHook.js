@@ -6,6 +6,7 @@ const useFetchHook = (API_URL) => {
   const fetchData = useCallback(async () => {
     try {
       const response = await axios.get(API_URL);
+      localStorage.setItem("products", JSON.stringify(response.data));
       setProducts(response.data);
     } catch (err) {
       console.log(err.message);

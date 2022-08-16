@@ -39,11 +39,22 @@ const reducerFun = (state, action) => {
       });
       return { ...state, addedProducts: newItems };
     }
+    case "CLEAR_CART": {
+      return { ...state, addedProducts: [] };
+    }
+    case "CATEGORY": {
+      state.availableItems = JSON.parse(localStorage.getItem("products"));
+      let newItems = state.availableItems?.filter((product) => {
+        return product.category == action.payload;
+      });
+      return { ...state, availableItems: newItems };
+    }
     default:
       return { ...state };
   }
 };
 const initialState = {
+  availableItems: JSON.parse(localStorage.getItem("products")),
   addedProducts: [],
   count: 0,
   totalCost: 0,
@@ -57,6 +68,7 @@ const AppReducer = ({ children }) => {
         addedProducts: state.addedProducts,
         dispatch,
         count: state.count,
+        availableItems: state.availableItems,
       }}
     >
       {children}

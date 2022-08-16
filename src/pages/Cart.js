@@ -14,12 +14,44 @@ const Container = styled.div`
 
 const Wrapper = styled.div`
   height: 160px;
-  width: 100%;
+  max-width: 100%;
   display: flex;
   align-items: center;
   padding: 0px 20px;
 `;
+const CostContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 100%;
+  padding: 10px 20px;
+  border-top: 1px solid black;
+`;
+const CostContainerTitle = styled.div`
+  font-size: 30px;
+`;
+const CostContainerValue = styled.div`
+  font-size: 30px;
+`;
+const ContentContainerTotal = styled.div`
+  flex: 1;
+  display: flex;
+  justify-content: end;
+  gap: 30px;
+`;
+const CostContainerButton = styled.div`
+  display: flex;
+  flex: 1;
+`;
 
+const CostContainerBtn = styled.button`
+  padding: 10px;
+  letter-spacing: 3px;
+  border: none;
+  background-color: lightblue;
+  border-radius: 4px;
+  cursor: pointer;
+`;
 const Image = styled.img`
   height: 80%;
   object-fit: cover;
@@ -77,6 +109,10 @@ const Cart = () => {
     }
   };
 
+  const deleteAllItems = () => {
+    dispatch({ type: "CLEAR_CART" });
+  };
+
   if (addedProducts.length === 0) {
     return <div>Cart is empty.</div>;
   }
@@ -116,6 +152,17 @@ const Cart = () => {
           </Wrapper>
         );
       })}
+      <CostContainer>
+        <CostContainerButton>
+          <CostContainerBtn onClick={deleteAllItems}>
+            Clear Cart<i className="fa fa-solid fa-trash"></i>
+          </CostContainerBtn>
+        </CostContainerButton>
+        <ContentContainerTotal>
+          <CostContainerTitle>Total</CostContainerTitle>
+          <CostContainerValue>0</CostContainerValue>
+        </ContentContainerTotal>
+      </CostContainer>
     </Container>
   );
 };
