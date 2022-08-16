@@ -6,8 +6,13 @@ const reducerFun = (state, action) => {
   switch (action.type) {
     case "SINGLE_ITEM": {
       let newItems = [...action.payload, ...state.addedProducts];
-      console.log(newItems);
-      return { ...state, addedProducts: newItems, count: state.count + 1 };
+      let newCost = action.payload.price;
+      return {
+        ...state,
+        addedProducts: newItems,
+        count: state.count + 1,
+        totalCost: newCost,
+      };
     }
     case "INCREASE_COST": {
       let newItems = state.addedProducts.map((product, index) => {
@@ -37,17 +42,36 @@ const reducerFun = (state, action) => {
       let newItems = state.addedProducts.filter((product, index) => {
         return product.id !== action.payload;
       });
-      return { ...state, addedProducts: newItems };
+      return { ...state, addedProducts: newItems, count: state.count - 1 };
     }
     case "CLEAR_CART": {
-      return { ...state, addedProducts: [] };
+      return { ...state, addedProducts: [], count: 0 };
     }
     case "CATEGORY": {
       state.availableItems = JSON.parse(localStorage.getItem("products"));
       let newItems = state.availableItems?.filter((product) => {
+        if (action.payload === "all") {
+          return product;
+        }
         return product.category == action.payload;
       });
       return { ...state, availableItems: newItems };
+    }
+    case "GET_TOTAL": {
+      const { totalCost, count } = state.addedProducts.reduce(
+        (cartTotal, cartItem) => {
+          const { price, quantity } = cartItem;
+          const itemTotal = price * quantity;
+          cartTotal.totalCost += itemTotal;
+          cartTotal.count += quantity;
+          return cartTotal;
+        },
+        {
+          count: 0,
+          totalCost: 0,
+        }
+      );
+      return { ...state, totalCost: totalCost };
     }
     default:
       return { ...state };
@@ -67,6 +91,7 @@ const AppReducer = ({ children }) => {
       value={{
         addedProducts: state.addedProducts,
         dispatch,
+        totalCost: state.totalCost,
         count: state.count,
         availableItems: state.availableItems,
       }}

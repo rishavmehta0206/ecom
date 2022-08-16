@@ -94,18 +94,22 @@ const ProductQuantityControl = styled.div`
 `;
 
 const Cart = () => {
-  const { addedProducts, dispatch } = useContext(AppContext);
+  const { addedProducts, dispatch, totalCost } = useContext(AppContext);
   const handleQuantity = (direction = "", id, quantity = 0) => {
     if (direction === "U") {
       dispatch({ type: "INCREASE_COST", payload: id });
+      dispatch({ type: "GET_TOTAL" });
     } else if (direction === "D") {
       if (quantity < 2) {
         dispatch({ type: "REMOVE_ITEM", payload: id });
+        dispatch({ type: "GET_TOTAL" });
       } else {
         dispatch({ type: "DECREASE_COST", payload: id });
+        dispatch({ type: "GET_TOTAL" });
       }
     } else {
       dispatch({ type: "REMOVE_ITEM", payload: id });
+      dispatch({ type: "GET_TOTAL" });
     }
   };
 
@@ -159,8 +163,8 @@ const Cart = () => {
           </CostContainerBtn>
         </CostContainerButton>
         <ContentContainerTotal>
-          <CostContainerTitle>Total</CostContainerTitle>
-          <CostContainerValue>0</CostContainerValue>
+          <CostContainerTitle>Total:</CostContainerTitle>
+          <CostContainerValue>{totalCost || 0}</CostContainerValue>
         </ContentContainerTotal>
       </CostContainer>
     </Container>

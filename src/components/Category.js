@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import AppContext from "../context/AppContext";
 
@@ -52,7 +52,9 @@ const MenuText = styled.div`
 
 const Category = () => {
   const { dispatch } = useContext(AppContext);
+  const [selectedCategory, setSelectedCategory] = useState("all");
   const filterByCategory = (category) => {
+    setSelectedCategory(category);
     dispatch({ type: "CATEGORY", payload: category });
   };
   return (
@@ -62,9 +64,13 @@ const Category = () => {
           <Menu>
             <MenuItem>
               <MenuText>
-                Category<i className="fa fa-solid fa-angle-down"></i>
+                Category ({selectedCategory})
+                <i className="fa fa-solid fa-angle-down"></i>
               </MenuText>
               <MenuTextDropDown>
+                <MenuTextDropDownText onClick={() => filterByCategory("all")}>
+                  All
+                </MenuTextDropDownText>
                 <MenuTextDropDownText onClick={() => filterByCategory("phone")}>
                   Phone
                 </MenuTextDropDownText>

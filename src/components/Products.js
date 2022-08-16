@@ -80,6 +80,7 @@ const Products = ({
         );
         console.log(response.data);
         dispatch({ type: "SINGLE_ITEM", payload: response.data });
+        dispatch({ type: "GET_TOTAL" });
       };
       fetchData();
     }
