@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Products from "../components/Products";
 import AppContext from "../context/AppContext";
 import Modal from "../components/Modal";
+import PopupModal from "../components/PopupModal";
 
 const Container = styled.div`
   height: 100vh;
@@ -35,11 +36,46 @@ const ModalContainer = styled.div`
   height: 50px;
 `;
 
+const PopupContainer = styled.div`
+  height: 100%;
+  width: 100%;
+  z-index: 999;
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+`;
+const WrapperModal = styled.div`
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+`;
+const PopupModalContainer = styled.div`
+  height: 80%;
+  width: 80%;
+  z-index: 2;
+`;
+const PopupModalButtons = styled.div`
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+const Icon = styled.div``;
+
 const Home = () => {
   const [modalChange, setModalChange] = useState(false);
   const { products } = useFetchHook("http://localhost:3001/products");
   const { addedProducts, count, availableItems } = useContext(AppContext);
   const [productId2, setProductId2] = useState(0);
+  const [popupChange, setPopUpChange] = useState(false);
   const [modalProperties, setModalProperties] = useState({
     message: "",
     color: "",
@@ -62,29 +98,46 @@ const Home = () => {
   };
 
   return (
-    <Container>
-      {modalChange && (
-        <ModalContainer>
-          <Modal modalProperties={modalProperties} />
-        </ModalContainer>
+    <>
+      {popupChange && (
+        <PopupContainer>
+          <WrapperModal>
+            <PopupModalContainer>
+              <PopupModal setPopUpChange={setPopUpChange}></PopupModal>
+            </PopupModalContainer>
+            <PopupModalButtons>
+              <Icon>1</Icon>
+              <Icon>2</Icon>
+            </PopupModalButtons>
+          </WrapperModal>
+        </PopupContainer>
       )}
-      <Wrapper>
-        <Left>
-          {availableItems?.map((product, index) => {
-            return (
-              <Products
-                key={product.id}
-                {...product}
-                setModalChange={setModalChange}
-                modalFeatureChanges={modalFeatureChanges}
-                setProductId2={setProductId2}
-              />
-            );
-          })}
-        </Left>
-        <Right></Right>
-      </Wrapper>
-    </Container>
+      <Container>
+        {modalChange && (
+          <ModalContainer>
+            <Modal modalProperties={modalProperties} />
+          </ModalContainer>
+        )}
+        <Wrapper>
+          <Left>
+            {availableItems?.map((product, index) => {
+              return (
+                <Products
+                  key={product.id}
+                  product={product}
+                  setModalChange={setModalChange}
+                  modalFeatureChanges={modalFeatureChanges}
+                  setProductId2={setProductId2}
+                  setPopUpChange={setPopUpChange}
+                  popupChange={popupChange}
+                />
+              );
+            })}
+          </Left>
+          <Right></Right>
+        </Wrapper>
+      </Container>
+    </>
   );
 };
 

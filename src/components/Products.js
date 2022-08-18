@@ -55,20 +55,7 @@ const Icon = styled.div`
   justify-content: center;
 `;
 
-const Products = ({
-  id,
-  company,
-  category,
-  model,
-  image,
-  price,
-  quantity,
-  description,
-  about,
-  setModalChange,
-  modalFeatureChanges,
-  setProductId2,
-}) => {
+const Products = (props) => {
   const { addedProducts, dispatch } = useContext(AppContext);
   const [productId, setProductId] = useState(0);
   const [wishlist, setWishlist] = useState(false);
@@ -93,42 +80,49 @@ const Products = ({
         return product.id === id;
       })
     ) {
-      modalFeatureChanges("Item present in cart.", "white", "green");
-      setProductId2((prev) => prev - 1);
+      props.modalFeatureChanges("Item present in cart.", "white", "green");
+      props.setProductId2((prev) => prev - 1);
     } else {
       setProductId(id);
-      modalFeatureChanges("Item saved.", "white", "green");
-      setProductId2((prev) => prev + 1);
+      props.modalFeatureChanges("Item saved.", "white", "green");
+      props.setProductId2((prev) => prev + 1);
     }
-    setModalChange(true);
+    props.setModalChange(true);
   };
   const addToWishList = useCallback(() => {
     setWishlist(!wishlist);
     if (!wishlist) {
-      modalFeatureChanges("Item added to wishlist.", "white", "green");
-      setProductId2((prev) => prev + 1);
+      props.modalFeatureChanges("Item added to wishlist.", "white", "green");
+      props.setProductId2((prev) => prev + 1);
     } else {
-      modalFeatureChanges("Item removed from wishlist.", "white", "green");
-      setProductId2((prev) => prev - 1);
+      props.modalFeatureChanges("Item removed from wishlist.", "white", "green");
+      props.setProductId2((prev) => prev - 1);
     }
-    setModalChange(true);
+    props.setModalChange(true);
   }, [wishlist]);
+
+
+  const sendDataToPopUpModal = (id) => {
+    props.setPopUpChange(!props.popupChange)
+    dispatch({type:"FETCH_SINGLE_ITEM",payload:id})
+  }
+
   return (
     <Container>
       <Wrapper>
-        <Image src={image} />
+        <Image onClick={() => sendDataToPopUpModal(props.product.id)} src={props.product.image} />
         <DetailContainer>
-          <ProductAbout>{about}</ProductAbout>
+          <ProductAbout>{props.product.about}</ProductAbout>
           <CardFooter>
             <CardFooterDetails>
-              <div>{model}</div>
-              <div>{company}</div>
-              <div>${price}</div>
+              <div>{props.product.model}</div>
+              <div>{props.product.company}</div>
+              <div>${props.product.price}</div>
             </CardFooterDetails>
             <CardFooterButtons>
               <Icon
                 onClick={() => {
-                  addItemToCart(id);
+                  addItemToCart(props.product.id);
                 }}
               >
                 <i className="fa fa-solid fa-cart-shopping"></i>

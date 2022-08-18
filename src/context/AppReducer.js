@@ -4,6 +4,12 @@ import AppContext from "./AppContext";
 
 const reducerFun = (state, action) => {
   switch (action.type) {
+    case "FETCH_SINGLE_ITEM": {
+      let findProductById = state.availableItems.find((product) => {
+        return product.id === action.payload;
+      });
+      return { ...state, fetchSingle: findProductById };
+    }
     case "SINGLE_ITEM": {
       let newItems = [...action.payload, ...state.addedProducts];
       let newCost = action.payload.price;
@@ -82,6 +88,7 @@ const initialState = {
   addedProducts: [],
   count: 0,
   totalCost: 0,
+  fetchSingle: {},
 };
 
 const AppReducer = ({ children }) => {
@@ -94,6 +101,7 @@ const AppReducer = ({ children }) => {
         totalCost: state.totalCost,
         count: state.count,
         availableItems: state.availableItems,
+        fetchSingle:state.fetchSingle
       }}
     >
       {children}

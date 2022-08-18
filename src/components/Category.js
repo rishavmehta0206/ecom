@@ -58,7 +58,6 @@ const Category = () => {
     dispatch({ type: "CATEGORY", payload: category });
   };
   return (
-    <>
       <Container>
         <Wrapper>
           <Menu>
@@ -84,7 +83,6 @@ const Category = () => {
           </Menu>
         </Wrapper>
       </Container>
-    </>
   );
 };
 
